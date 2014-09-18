@@ -1,0 +1,89 @@
+ <!--
+ Author: luca	 
+ App: publication client example consuming RESTful api implemented with SLIM 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bids</title>
+<meta name="description" content="Publications">
+<meta name="author" content="luca">
+
+
+
+<link href="css/bootstrap.css" rel="stylesheet" />
+<style type="text/css">
+body {padding-top: 30px;}
+</style>
+</head>
+<body>
+	<div class='navbar navbar-fixed-top navbar-inverse'>
+		<div class='navbar-inner'>
+			<div class='container-fluid'>
+			<a href= "index.html" class='brand'>Properties </a>
+				<a href= "bids.html" class='brand'>Bids </a>
+				<a href= "userbids.html" class='brand'>Users</a>
+				<a href= "propertysandbids.html" class='brand'>Admin</a>
+				<div class="navbar-form pull-right">
+						<fieldset>
+							<button id="btnMobile" onclick="window.open('mobile.html')" class="btn btn-success">Mobile Site</button>
+							<button id="btnAdd" class="btn btn-success">Add Property</button>
+						</fieldset>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid" style="margin-top: 20px">
+		<div class="span6">
+			<h2></h2>
+			<ul id="PropertyList"></ul>
+		</div>
+		<div class="span6" id="Propdetails">
+			<h2>Property Details</h2>
+			<div>
+			<form id="PropertyForm">
+				<fieldset>
+					<label>property_id</label>  <input type="text" id="property_id" name="property_id" disabled/> 
+					<label>property_description:</label> <input type="text" id="property_description" name="property_description" required/> 
+					<label>auction_start_date</label> <input type="text" id="auction_start_date" name="auction_start_date" required/> 
+					<label>auction_actual_selling_price:</label> <input type="text" id="auction_actual_selling_price" name="auction_actual_selling_price" required/>
+					<input type="hidden" id="property_reserve_price" name="property_reserve_price" value="not USED ANYMORE" disabled /> 
+					
+					<input type="hidden" id="current_successful_bidder_user" name="current_successful_bidder_user" value=notused" disabled/> 
+					<label>property_comments:</label> <input type="text" id="property_comments" name="property_comments" required/> 
+					
+					<label>property_photo</label>  <input type="text" id="property_photo" name="property_photo" required /> 
+					<input id="upload-file" type="file" name="file"/> 
+					
+				
+					<label>auction_close_date</label> <input type="text" id="auction_close_date" name="auction_close_date" required/>
+					
+					
+					<input type="hidden" id="bid_higest_price" name="bid_higest_price" value="not stored anymore" disabled/> 
+					<label>property_rooms:</label> <input type="text" id="property_rooms" name="property_rooms" required/> 
+				    <label>property_address:</label> <input type="text" id="property_address" name="property_address" required/> 
+						<p>
+						<button id="btnSave" class="btn btn-primary">Save</button>
+						<button id="btnDelete" class="btn btn-primary">Delete</button>
+							
+					</p>
+				</fieldset>
+				
+			</form>
+					
+			</div>
+			
+			
+		</div>
+	<hr>
+	
+	
+	<link href="css/ui-darkness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script src="js/properties.js"></script>
+
+</body>
+</html>

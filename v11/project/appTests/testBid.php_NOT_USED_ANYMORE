@@ -1,0 +1,62 @@
+<?php
+
+require_once('../simpletest/web_tester.php');
+require_once('../simpletest/reporter.php');
+
+class SlimWebBid extends WebTestCase 
+{
+		public function setUp()
+		{
+             $this->get('http://localhost/project/project/app/index.php/bids/15');
+		}
+	 	public function testAddBid() 
+   		{
+   			
+    	
+			//$this->assertTrue('http://localhost/project/project/app/index.php/bids/15');
+   			// //$this->assertResponse(200);
+   			//$this->assertText('{"bid_id":"15","Bid_lowest_price":"10.00","bid_higest_price":"1000000.00","bid_description":"bid 10 - 100 jkhjh","bid_comments":"bid","user_id":"0","property_id":"1"}');
+   			//$this->assertWantedPattern('/perrick penet/i');
+        	//$this->assertNoUnwantedPattern('/perrick pennet/i');
+		}	
+		
+		public function testUpdateBid() 
+   		{
+    	
+   			 $this->put(
+                'http://localhost/project/project/app/index.php/bids/15',
+                '{"bid_id":"15","Bid_lowest_price":"7.00","bid_higest_price":"1000000.00","bid_description":"bid 10 - 100 jkhjh","bid_comments":"bid","user_id":"0","property_id":"1"}',
+   			  "application/json");
+   			 $this->showHeaders();
+     // $this->assertNoText('user created');
+			 //$this->assertText('We are really great');
+   			//$this->assertWantedPattern('/perrick penet/i');
+        	//$this->assertNoUnwantedPattern('/perrick pennet/i');
+        	//$this->assertHeader($header , "201");
+		}	
+		public function testCreateBid() 
+   		{
+    		 $this->post(
+                'http://localhost/project/project/app/index.php/bids',
+                '{"Bid_lowest_price":"7.00","bid_higest_price":"1000000.00","bid_description":"posted","bid_comments":"posted","user_id":"0","property_id":"1"}' ,
+   			  "application/json");
+      //$this->assertNoText('user created');
+   			// $this->assertText('We are really great');
+   			//$this->assertWantedPattern('/perrick penet/i');
+        	//$this->assertNoUnwantedPattern('/perrick pennet/i');
+        	 $this->showHeaders();
+        	 //$this->assertHeader($header , "200");
+		}	
+    	public function ShowAllBids() 
+   		{
+    	
+			 //$this->assertText('We are really great');
+   			//$this->assertWantedPattern('/perrick penet/i');
+        	//$this->assertNoUnwantedPattern('/perrick pennet/i');
+		}		
+	
+	
+}
+$test = &new SlimWebBid();
+$test->run(new HtmlReporter());
+?>

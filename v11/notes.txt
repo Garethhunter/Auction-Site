@@ -1,0 +1,36 @@
+folder should be in structure , just keep the structure as follows. 
+and modify the config_inc.php , the database SQL needs to be inported into an existing DB
+
+
+/project/project 
+on windows
+i.e
+C:\xampp\htdocs\project\project
+
+thie API
+C:\xampp\htdocs\project\project\app
+
+and the design doc located
+C:\xampp\htdocs\project\project\designdoc
+
+config file is located in
+C:\xampp\htdocs\project\project\app\config
+
+
+as the JAVA script wont work as uses var rootURL = "http://localhost/project/project/app/index.php/ to access the API
+
+
+
+
+Quick test URL should get a list of bids
+http://localhost/project/project/app/index.php/bids
+
+Mock up Mobile site at 
+http://localhost/project/project/client/mobile.html
+
+mock up web site to test
+http://localhost/project/project/client/index.html
+
+App tests located here
+App tests few fail , but I know abut this as The API gives message for invalid parameters
+http://localhost/project/project/appTests/index.html

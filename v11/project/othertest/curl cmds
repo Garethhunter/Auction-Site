@@ -1,0 +1,92 @@
+sql
+CREATE TABLE Bids
+(
+    bid_id int NOT NULL AUTO_INCREMENT,
+	Bid_lowest_price     DECIMAL(10,2) NULL,
+	bid_higest_price     DECIMAL(10,2) NULL,
+	bid_description      VARCHAR(255) NULL,
+	bid_comments         VARCHAR(255) NULL,
+	user_id              CHAR(18) NOT NULL,
+	property_id          CHAR(18) NOT NULL,
+	PRIMARY KEY (bid_id)
+	
+);
+
+CREATE TABLE users
+(
+	user_id           int NOT NULL AUTO_INCREMENT,
+	user_name            VARCHAR(50) NULL,
+	user_address         VARCHAR(100) NULL,
+	user_email           VARCHAR(100) NULL,
+	user_phone           VARCHAR(20) NULL,
+	user_password        VARCHAR(25) NULL,
+	user_description     VARCHAR(100) NULL,
+	PRIMARY KEY (user_id)
+);
+
+
+CREATE TABLE property_items
+(
+	property_id           int NOT NULL AUTO_INCREMENT,
+	auction_start_date           DATE NULL,
+	auction_close_date         DATE NULL,
+	property_comments           VARCHAR(100) NULL,
+	property_address           VARCHAR(100) NULL,
+	auction_actual_selling_price          DECIMAL(10,2) NULL, 
+	property_reserve_price       DECIMAL(10,2) NULL,
+	current_successful_bidder_user     VARCHAR(100) NULL,
+	property_photo     VARCHAR(100) NULL,
+	property_rooms     VARCHAR(100) NULL,
+	PRIMARY KEY (property_id)
+);
+
+
+
+
+--get publications
+
+curl -i -X GET http://localhost/MVC_code/publications_REST_slim_example/app/index.php/publications/2
+curl -i -X GET http://localhost/MVC_code/publications_REST_slim_example/app/index.php/publications/3
+
+
+--add
+curl -i -X POST -H ’Content-Type:application/json’-d’{"title":"newtitle","authors":"luca","year":"2014","proceeding":"testproc"}’
+http://localhost/MVC_code/publications_REST_slim_example/app/index.php/publications
+
+
+curl -i -X GET http://localhost/project/project/app/testslim.php/hello3
+curl -i -X GET http://localhost/project/project/app/index.php/publications/2
+
+
+--add
+curl -i -X POST -H ’Content-Type:application/json’-d’{"title":"newtitle","authors":"gareth","year":"2014","proceeding":"testproc"}’ http://localhost/project/project/app/index.php/publications
+
+curl -i -X POST -H ’Content-Type:application/json’-d’{"title":"newtitle","authors":"gareth","year":"2014","proceeding":"testproc"}’ http://localhost/project/project/app/index.php/publications
+
+curl -v -H "Content-Type: application/json" -X POST -d '{"screencast":{"subject":"tools"}}' \
+http://localhost:3570/index.php/trainingServer/screencast.json
+
+curl -v -H "Content-Type: application/json" -X POST -d '{"title":"newtitle","authors":"gareth","year":"2014","proceeding":"testproc"}' http://localhost/project/project/app/index.php/publications
+
+{"bid_id":"1","Bid_lowest_price":"10.00","bid_higest_price":"1000000.00","bid_description":"bid 10 - 100 jkhjh","bid_comments":"bid","user_id":"0","property_id":"1"}
+
+add a bid
+
+get user 0 and property 1
+curl -i -X GET http://localhost/project/project/app/index.php/bids/0/1
+
+
+curl -v -H "Content-Type: application/json" -X POST -d '{"bid_id":"10","Bid_lowest_price":"10.00","bid_higest_price":"1000000.00","bid_description":"bid 10 - 100 jkhjh","bid_comments":"bid","user_id":"0","property_id":"1"}' http://localhost/project/project/app/index.php/bids
+
+curl -v -H "Content-Type: application/json" -X POST -d '{"Bid_lowest_price":"10.00"}' http://localhost/project/project/app/index.php/bids
+
+
+curl -v -H "Content-Type: application/json" -X POST http://localhost/project/project/app/index.php/bids -d @json.txt
+
+--update put bid
+curl -v -H "Content-Type: application/json" -X PUT http://localhost/project/project/app/index.php/bids/15 -d @json.txt
+
+curl -v -H "Content-Type: application/json" -X PUT http://localhost/project/project/app/index.php/property/1 -d @prop.txt
+curl -v -H "Content-Type: application/json" -X PUT http://localhost/project/project/app/index.php/property/1 -d @prop.txt
+--add bid for a property
+curl -v -H "Content-Type: application/json" -X POST http://localhost/project/project/app/index.php/property/1 -d @addbid.json

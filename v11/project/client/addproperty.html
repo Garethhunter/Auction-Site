@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<title>Add New Property</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet"  href="mobile/js/jquery.mobile-1.3.2.min.css">
+	 
+</head> 
+<body> 
+
+<div data-role="page">
+	<div data-role="header">
+		<h1>Add New Property</h1>
+		   <a href="mobile.html" data-shadow="false" data-iconshadow="false" data-icon="arrow-l" data-iconpos="notext" data-rel="dialog" data-ajax="true">Back</a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		 
+		 <h2>Enter Details for new Property</h2>
+			<div>
+			<form id="PropertyForm">
+				<fieldset>
+				
+		
+					<input type="hidden" id="property_id" value="1" name="property_id" disabled/> 
+					<label>description:</label> <input type="text" id="property_description" name="property_description" placeholder="Description..." required/> 
+					<label>start_date</label> <input type="date" id="auction_start_date" name="auction_start_date" placeholder="Auction start date.."  required/> 
+					
+					<input type="hidden" id="auction_close_date" name="auction_close_date" value="2014-12-12"  required/> 
+				
+					
+					<input type="hidden" id="auction_actual_selling_price" value = "1000" name="auction_actual_selling_price" required/>
+					
+					<label>Reserve_price</label>  <input type="text" id="property_reserve_price" name="property_reserve_price" placeholder="Property Price.." required /> 
+					<input type="hidden" id="current_successful_bidder_user" value="1" name="current_successful_bidder_user" required/> 
+					<label>comments</label> <input type="text" id="property_comments" name="property_comments"  placeholder="Comments.." required/> 
+					
+					<input id="property_photo"  type="file" value="12" name="file" disabled/> 
+					<input type="hidden" value="0" id="bid_higest_price" name="bid_higest_price" required/> 
+					
+					<label for="slider-1">No of Bed Rooms</label>
+					<input type="range" name="slider-1" id="property_rooms" value="1" min="1" max="10"  required />
+				   
+				    <label>address:</label> <input type="text" id="property_address" name="property_address"  placeholder="Property Address.." required/> 
+					<p>
+										
+					<button id="btnPropSave">Add</button>
+						
+					</p>
+				</fieldset>
+			</form>
+			</div>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="mobile/js/jquery.mobile-1.3.2.min.js"></script>
+	<!--   <script src="js/addProp.js"></script>  -->
+ 	
+ 	<script>
+												 	
+												 	 				
+ 	
+ 	
+ 	
+ 	</script>
+ 	
+ 	
+
+</body>
+</html>
