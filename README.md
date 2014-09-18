@@ -99,7 +99,9 @@ To get a list of all bids for a particular property	get	http://localhost/bids/Ad
 
 Data to be passed to and from the server API is to be formed both JSON and XML. Therefore two types of response: Example in JSON 
 
-I.e. To get a single user details:	JSON &contenttype=json
+I.e. To get a single user details:
+
+JSON &contenttype=json
 Get http://localhost/user/10	response
 { 
   "response":"user_bidder",
@@ -128,7 +130,7 @@ The application will rely on the above folder portfolio and will use the Twitter
 The application will be designed in an MVC architecture using MySQL as the database , but this database will be connected via a factory so it can be decoupled easily at any stage
 
 High-level schema
-The application will implement a three-tier validation system, given a robust validation scheme. Based on an MVC architecture strapped with Twitter and executing a data access factory.  Implement the same design, as learnt in Web architectures class
+The application will implement a three-tier validation system, given a robust validation scheme. Based on an MVC architecture strapped with Twitter and executing a data access factory.  Implement the same design
 
 The presentation tier will only display submit buttons when all other fields have been filled in i.e. in a logon screen the submit button will only become active when I username and password is entered in the correct format.
 
@@ -146,6 +148,7 @@ High level schema
 
 Example reg expressions:
 Validating an email string
+
 
 function isEmailValid($emailStr){
 
